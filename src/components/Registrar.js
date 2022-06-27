@@ -15,7 +15,7 @@ function Copyright(props) {
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
 
-                M@ikelPro-
+            M@ikelPro-
 
             {new Date().getFullYear()}
             {'.'}
@@ -25,7 +25,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignIn({hanlindLoguiado}) {
+export default function Registrar({hanlindLoguiado}) {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -51,7 +51,7 @@ export default function SignIn({hanlindLoguiado}) {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Panel de Administración
+                        Agregar Admin
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
@@ -75,15 +75,15 @@ export default function SignIn({hanlindLoguiado}) {
                             autoComplete="Contraseña"
                         />
                         <Link to='/items'>
-                        <Button
-                            type="button"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
-                            onClick={hanlindLoguiado}
-                        >
-                            Entrar
-                        </Button>
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2 }}
+                                onClick={hanlindLoguiado}
+                            >
+                                Agregar
+                            </Button>
                         </Link>
                     </Box>
                 </Box>

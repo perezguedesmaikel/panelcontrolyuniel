@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
+import {Link} from 'react-router-dom';
 function NavBar() {
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-primary">
@@ -13,8 +14,12 @@ function NavBar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active text-light" aria-current="page" href="#">
-                                <Button variant="contained" color='secondary'>Agregar Item</Button></a>
+                            <Link to={'/items'} className="nav-link active text-light" aria-current="page" href="#">
+                              <Button variant="contained" color='primary'>Agregar Item</Button></Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to={'/registrar'} className="nav-link active text-light" aria-current="page" href="#">
+                                <Button variant="contained" color='primary'>Agregar Admin</Button></Link>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link text-light" href="#">Accesorios</a>
@@ -39,7 +44,7 @@ function NavBar() {
                     </ul>
                     <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
-                            <Button color="secondary" variant="contained">Buscar</Button>
+                            <Button color="primary" variant="contained">Buscar</Button>
                     </form>
                 </div>
             </div>
