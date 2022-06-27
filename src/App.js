@@ -13,7 +13,7 @@ function App() {
         <Routes>
             <Route path='/' element={<SignIn/>}/>
             <Route path='/registrar' element={<Registrar/>}/>
-            <Route path='/items' element={<Items/>}/>
+            <Route path='/items' element={<Items/>}/>firebase
 
         </Routes>
         </AuthProvider>

@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {Link} from 'react-router-dom';
+import {useState} from 'react';
 
 function Copyright(props) {
     return (
@@ -26,6 +27,15 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Registrar({hanlindLoguiado}) {
+    const [user,setUser]=useState({
+        email:'',
+        password:''
+    });
+    const hadlerChange=({target:{name,value}})=>{
+        setUser({...user,[name]:value});
+        console.log(user);
+
+    }
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -55,20 +65,22 @@ export default function Registrar({hanlindLoguiado}) {
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
+                            onChange={hadlerChange}
                             margin="normal"
                             required
                             fullWidth
                             id="email"
                             label="Correo Electrónico"
-                            name="Correo"
+                            name="correo"
                             autoComplete="Correo Electrónico"
                             autoFocus
                         />
                         <TextField
+                            onChange={hadlerChange}
                             margin="normal"
                             required
                             fullWidth
-                            name="Contraseña"
+                            name="contrasena"
                             label="Contraseña"
                             type="password"
                             id="password"

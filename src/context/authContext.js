@@ -1,12 +1,20 @@
-import React, {createContext} from 'react';
-const context=createContext({});
+import React, {createContext, useContext} from 'react';
+
+export const authContext=createContext({});
+
+ export const useAuth=()=>{
+     return useContext(authContext);
+
+ }
 export function AuthProvider({children}) {
     const user={
         login:true
     }
     return(
-        <context.Provider value={{user}}>
+        <authContext.Provider value={{user}}>
             {children}
-        </context.Provider>
+        </authContext.Provider>
     )
 }
+//Ejemplo para user context, la linea de abajo es un ejemplo de lo unico que se deve importar
+//import {useAuth} from '../context/authContext';

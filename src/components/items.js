@@ -1,9 +1,11 @@
 import React from "react";
 import RecipeReviewCard from "./card";
 import NavBar from "./navBar";
-
+import {useAuth} from '../context/authContext';
 
 function Items() {
+    const {user}=useAuth();
+
     return(
         <>
             <div className='mb-4'>
