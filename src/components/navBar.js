@@ -2,13 +2,12 @@ import React from "react";
 import Button from "@mui/material/Button";
 import {Link, useNavigate} from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
-import {useAuth} from "../context/authContext";
+import {app} from '../firebase/nuevacredensial'
 function NavBar() {
-    const {logout,loading}=useAuth();
     const navigate=useNavigate();
-     const  handerlogaout= async () => {
-         await logout();
-         navigate('/login');
+     const  handerlogaout=  async () => {
+         await app.auth().signOut().then();
+         navigate('/');
      }
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-primary">

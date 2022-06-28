@@ -10,9 +10,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import {useNavigate} from 'react-router-dom';
-import {useAuth} from '../context/authContext';
-import Alert from "@mui/material/Alert";
-import {useSelector} from "react-redux";
+import {app} from "../firebase/nuevacredensial";
 
 
 function Copyright(props) {
@@ -31,34 +29,25 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function Login() {
-    const parche2=useSelector(state => state.parche);
-    const {loguiado} = parche2;
-    const [user, setUser] = useState({
-        email: "",
-        password: "",
-    });
-    const [error,setError]=useState();
+export default function Login(props) {
+
+
+    const [error2,setError2]=useState(null);
     const navigate=useNavigate();
-
-    const {login}=useAuth();
-    const hadlerChange=({target:{name,value}})=>{
-        setUser({...user,[name]:value});
-
-    }
-
-    const handleSubmit =   async (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // signup(user.correo,user.contrasena);
+        const data = new FormData(event.currentTarget);
+        await app.auth().signInWithEmailAndPassword(data.get('email').toString(),data.get('password').toString())
+            .then(
+                usuarioFirebase=>{
+                    props.setUsuario(usuarioFirebase);
+                    navigate('/');
+                }
+            ).catch(
+                error=>{
+                    setError2(error.message)}
 
-        try {
-            await login(user.correo, user.contrasena);
-
-            navigate('/');
-
-        } catch (error) {
-            setError(error.message);
-        }
+            );
 
     };
 
@@ -86,31 +75,27 @@ export default function Login() {
 
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
-                            onChange={hadlerChange}
+
                             margin="normal"
                             required
                             fullWidth
                             id="email"
                             label="Correo Electrónico"
-                            name="correo"
+                            name="email"
                             autoComplete="Correo Electrónico"
                             autoFocus
                         />
                         <TextField
-                            onChange={hadlerChange}
+
                             margin="normal"
                             required
                             fullWidth
-                            name="contrasena"
+                            name="password"
                             label="Contraseña"
                             type="password"
                             id="password"
                             autoComplete="Contraseña"
                         />
-
-                        <Alert variant="filled" className={`${error?'':'error'}`} severity="error">
-                            {error && <p>Servidor:{error}</p>}
-                        </Alert>
                         <Button
                             type="submit"
                             fullWidth

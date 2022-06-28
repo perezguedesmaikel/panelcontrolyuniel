@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -7,12 +8,13 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
 import {useNavigate} from 'react-router-dom';
-import {useState} from 'react';
-import {useAuth} from '../context/authContext'
+import {app} from '../firebase/nuevacredensial';
+import Alert from "@mui/material/Alert";
 
 function Copyright(props) {
+
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
@@ -27,27 +29,23 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function Registrar({hanlindLoguiado}) {
-    const [error,setError]=useState();
+export default function Registrar(props) {
+    const [error2,setError2]=useState(null);
     const navigate=useNavigate();
-    const [user,setUser]=useState({
-        correo:'',
-        contrasena:''
-    });
-    const {signup}=useAuth();
-    const hadlerChange=({target:{name,value}})=>{
-        setUser({...user,[name]:value});
-
-    }
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // signup(user.correo,user.contrasena);
-        try {
-            await signup(user.correo, user.contrasena);
-            navigate('/');
-        } catch (error) {
-            setError(error.message);
-        }
+        const data = new FormData(event.currentTarget);
+       await app.auth().createUserWithEmailAndPassword(data.get('email').toString(),data.get('password').toString())
+            .then(
+                usuarioFirebase=>{
+                    props.setUsuario(usuarioFirebase);
+                    navigate('/');
+                }
+            ).catch(
+                error=>{
+                    setError2(error.message)}
+
+        );
 
     };
 
@@ -76,34 +74,33 @@ export default function Registrar({hanlindLoguiado}) {
 
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
-                            onChange={hadlerChange}
                             margin="normal"
                             required
                             fullWidth
                             id="email"
                             label="Correo Electrónico"
-                            name="correo"
+                            name="email"
                             autoComplete="Correo Electrónico"
                             autoFocus
                         />
                         <TextField
-                            onChange={hadlerChange}
                             margin="normal"
                             required
                             fullWidth
-                            name="contrasena"
+                            name="password"
                             label="Contraseña"
                             type="password"
                             id="password"
                             autoComplete="Contraseña"
                         />
-                        {error && <p>Servidor:{error}</p>}
+                        {error2 && <Alert variant="filled" severity="error">
+                            {error2}
+                        </Alert>}
                             <Button
                                 type="submit"
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
-                                onClick={hanlindLoguiado}
                             >
                                 Agregar
                             </Button>

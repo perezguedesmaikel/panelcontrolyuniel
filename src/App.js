@@ -1,22 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Routes,Route} from 'react-router-dom';
 import Items from "./components/items";
 import Registrar from "./components/Registrar";
-import {AuthProvider, useAuth} from './context/authContext';
 import Login from "./components/login";
-import {ProtectedRoute} from "./components/protectedroute";
-
+import {app} from './firebase/nuevacredensial';
 function App() {
+    const[usuario,setUsuario]=useState(null);
+    useEffect(()=>{
+        app.auth().onAuthStateChanged(usuarioFirebase=>{
+            setUsuario(usuarioFirebase);
+        })
+    },[]);
   return (
     <div className="App">
-        <AuthProvider>
         <Routes>
-            <Route path='/login' element={<Login/>}/>
-            <Route path='/registrar' element={<ProtectedRoute><Registrar/></ProtectedRoute>}/>
-            <Route path='/' element={<ProtectedRoute><Items/></ProtectedRoute>}/>
+            {usuario?<Route path='/registrar' element={<Registrar setUsuario={setUsuario}/>}/>: <Route path='/registrar' element={<Login setUsuario={setUsuario}/>}/>}
+            {usuario?<Route path='/' element={<Items/>}/>: <Route path='/' element={<Login setUsuario={setUsuario}/>}/>}
         </Routes>
-        </AuthProvider>
+
     </div>
   );
 }
