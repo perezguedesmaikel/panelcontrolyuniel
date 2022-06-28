@@ -4,14 +4,12 @@ import {Link, useNavigate} from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
 import {useAuth} from "../context/authContext";
 function NavBar() {
-    const {user,logout,loading}=useAuth();
+    const {logout,loading}=useAuth();
     const navigate=useNavigate();
-    async function handerlogaout() {
-       await navigate('/login');
-        await logout(user);
-
-
-    }
+     const  handerlogaout= async () => {
+         await logout();
+         navigate('/');
+     }
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-primary">
             <div className="container-fluid">
@@ -56,9 +54,7 @@ function NavBar() {
                         <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
                             <Button color="primary" variant="contained">Buscar</Button>
                     </form>
-                    <Button color="warning" variant="contained"><LogoutIcon className='text-light m-1'
-                    onClick={handerlogaout}
-                    />salir</Button>
+                    <Button color="warning" variant="contained" onClick={handerlogaout}><LogoutIcon className='text-light m-1'/>salir</Button>
                 </div>
             </div>
         </nav>

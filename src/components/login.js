@@ -8,7 +8,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,Link} from 'react-router-dom';
 import {useState} from 'react';
 import {useAuth} from '../context/authContext';
 import Alert from "@mui/material/Alert";
@@ -29,25 +29,24 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function Login({hanlindLoguiado}) {
+export default function Login() {
     const [error,setError]=useState();
     const navigate=useNavigate();
-    const [user,setUser]=useState({
-        correo:'',
-        contrasena:''
-    });
+    const [user,setUser]=useState(null);
+
     const {login}=useAuth();
     const hadlerChange=({target:{name,value}})=>{
         setUser({...user,[name]:value});
 
     }
-    const handleSubmit = async (event) => {
+
+    const handleSubmit =   async (event) => {
         event.preventDefault();
         // signup(user.correo,user.contrasena);
-        navigate('/');
-        try {
 
+        try {
             await login(user.correo, user.contrasena);
+            navigate('/items');
 
         } catch (error) {
             setError(error.message);
@@ -109,7 +108,6 @@ export default function Login({hanlindLoguiado}) {
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
-                            onClick={hanlindLoguiado}
                         >
                             Entrar
                         </Button>

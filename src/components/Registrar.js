@@ -44,7 +44,7 @@ export default function Registrar({hanlindLoguiado}) {
         // signup(user.correo,user.contrasena);
         try {
             await signup(user.correo, user.contrasena);
-            navigate('/');
+            navigate('/items');
         } catch (error) {
             setError(error.message);
         }

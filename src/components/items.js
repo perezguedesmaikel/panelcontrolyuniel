@@ -2,12 +2,9 @@ import React from "react";
 import RecipeReviewCard from "./card";
 import NavBar from "./navBar";
 import {useAuth} from '../context/authContext';
-import CircularProgress from "@mui/material/CircularProgress";
 
 function Items() {
-    const {user,loading}=useAuth();
-
-
+    const {user}=useAuth();
     return(
 
         <>
@@ -17,8 +14,6 @@ function Items() {
             </div>
         <div className='container-fluid'>
             <h1>Vienvenido</h1>
-            {loading &&<CircularProgress />}
-            <h4>{user.email}</h4>
             <div className='d-flex flex-wrap justify-content-center'>
                 <RecipeReviewCard/>
                 <RecipeReviewCard/>
