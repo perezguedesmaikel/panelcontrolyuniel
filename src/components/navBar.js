@@ -8,7 +8,7 @@ function NavBar() {
     const navigate=useNavigate();
      const  handerlogaout= async () => {
          await logout();
-         navigate('/');
+         navigate('/login');
      }
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-primary">

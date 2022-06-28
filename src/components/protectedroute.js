@@ -4,15 +4,10 @@ import React, {useEffect} from "react";
 
 
 export function ProtectedRoute({children}) {
-    useEffect(()=>{
-        navegar();
-        return () => {
-            if (!user) return <Navigate to={'/'}/>
-        }
-    },[]);
+
     const {user}=useAuth();
-    const navegar=()=>{
-        if (!user) return <Navigate to={'/'}/>
-    }
+
+        if (!user) return <Navigate to={'/login'}/>
+
     return <>{children}</>
 }

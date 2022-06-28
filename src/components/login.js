@@ -46,7 +46,7 @@ export default function Login() {
 
         try {
             await login(user.correo, user.contrasena);
-            navigate('/items');
+            navigate('/');
 
         } catch (error) {
             setError(error.message);

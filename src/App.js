@@ -12,9 +12,9 @@ function App() {
     <div className="App">
         <AuthProvider>
         <Routes>
-            <Route path='/' element={<Login/>}/>
+            <Route path='/login' element={<Login/>}/>
             <Route path='/registrar' element={<ProtectedRoute><Registrar/></ProtectedRoute>}/>
-            <Route path='/items' element={<ProtectedRoute><Items/></ProtectedRoute>}/>
+            <Route path='/' element={<ProtectedRoute><Items/></ProtectedRoute>}/>
         </Routes>
         </AuthProvider>
     </div>
