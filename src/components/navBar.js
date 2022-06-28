@@ -1,6 +1,8 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import {Link} from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
+import {useAuth} from "../context/authContext";
 function NavBar() {
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-primary">
@@ -42,10 +44,11 @@ function NavBar() {
                             </ul>
                         </li>
                     </ul>
-                    <form className="d-flex">
+                    <form className="d-flex  m-2">
                         <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
                             <Button color="primary" variant="contained">Buscar</Button>
                     </form>
+                    <Button color="warning" variant="contained"><LogoutIcon className='text-light m-1'/>salir</Button>
                 </div>
             </div>
         </nav>
