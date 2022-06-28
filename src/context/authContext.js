@@ -1,4 +1,6 @@
 import React, {createContext, useContext} from 'react';
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword} from "@firebase/auth";
+import {auth} from '../firebase/firebase';
 
 export const authContext=createContext({});
 
@@ -7,11 +9,14 @@ export const authContext=createContext({});
 
  }
 export function AuthProvider({children}) {
-    const user={
-        login:true
-    }
+
+const signup=(correo,contrasena)=>createUserWithEmailAndPassword(auth,correo,contrasena);
+const login=(correo,contrasena)=>signInWithEmailAndPassword(auth,correo,contrasena);
+
+
+
     return(
-        <authContext.Provider value={{user}}>
+        <authContext.Provider value={{signup,login}}>
             {children}
         </authContext.Provider>
     )

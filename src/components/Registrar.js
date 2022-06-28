@@ -8,8 +8,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {useState} from 'react';
+import {useAuth} from '../context/authContext'
 
 function Copyright(props) {
     return (
@@ -27,28 +28,36 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Registrar({hanlindLoguiado}) {
+    const [error,setError]=useState();
+    const navigate=useNavigate();
     const [user,setUser]=useState({
-        email:'',
-        password:''
+        correo:'',
+        contrasena:''
     });
+    const {signup}=useAuth();
     const hadlerChange=({target:{name,value}})=>{
         setUser({...user,[name]:value});
-        console.log(user);
 
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+        // signup(user.correo,user.contrasena);
+        try {
+            await signup(user.correo, user.contrasena);
+            navigate('/items');
+        } catch (error) {
+            setError(error.message);
+        }
+
     };
+
 
     return (
         <ThemeProvider theme={theme}>
+
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
+
                 <Box
                     sx={{
                         marginTop: 8,
@@ -63,6 +72,7 @@ export default function Registrar({hanlindLoguiado}) {
                     <Typography component="h1" variant="h5">
                         Agregar Admin
                     </Typography>
+
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
                             onChange={hadlerChange}
@@ -86,7 +96,7 @@ export default function Registrar({hanlindLoguiado}) {
                             id="password"
                             autoComplete="Contraseña"
                         />
-                        <Link to='/items'>
+                        {error && <p>Servidor:{error}</p>}
                             <Button
                                 type="submit"
                                 fullWidth
@@ -96,11 +106,14 @@ export default function Registrar({hanlindLoguiado}) {
                             >
                                 Agregar
                             </Button>
-                        </Link>
                     </Box>
+
+
                 </Box>
                 <Copyright sx={{ mt: 8, mb: 4 }} />
+
             </Container>
         </ThemeProvider>
+
     );
 }

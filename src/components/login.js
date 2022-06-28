@@ -8,14 +8,18 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+import {useState} from 'react';
+import {useAuth} from '../context/authContext';
+import Alert from "@mui/material/Alert";
+
 
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
 
-                M@ikelPro-
+            M@ikelPro-
 
             {new Date().getFullYear()}
             {'.'}
@@ -25,20 +29,37 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignIn({hanlindLoguiado}) {
-    const handleSubmit = (event) => {
+export default function Login({hanlindLoguiado}) {
+    const [error,setError]=useState();
+    const navigate=useNavigate();
+    const [user,setUser]=useState({
+        correo:'',
+        contrasena:''
+    });
+    const {login}=useAuth();
+    const hadlerChange=({target:{name,value}})=>{
+        setUser({...user,[name]:value});
+
+    }
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+        // signup(user.correo,user.contrasena);
+        try {
+            await login(user.correo, user.contrasena);
+            navigate('/items');
+        } catch (error) {
+            setError(error.message);
+        }
+
     };
+
 
     return (
         <ThemeProvider theme={theme}>
+
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
+
                 <Box
                     sx={{
                         marginTop: 8,
@@ -51,32 +72,38 @@ export default function SignIn({hanlindLoguiado}) {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Panel de Administración
+                        Panel Control Tienda
                     </Typography>
+
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
+                            onChange={hadlerChange}
                             margin="normal"
                             required
                             fullWidth
                             id="email"
                             label="Correo Electrónico"
-                            name="Correo"
+                            name="correo"
                             autoComplete="Correo Electrónico"
                             autoFocus
                         />
                         <TextField
+                            onChange={hadlerChange}
                             margin="normal"
                             required
                             fullWidth
-                            name="Contraseña"
+                            name="contrasena"
                             label="Contraseña"
                             type="password"
                             id="password"
                             autoComplete="Contraseña"
                         />
-                        <Link to='/items'>
+
+                        <Alert variant="filled" className={`${error?'':'error'}`} severity="error">
+                            {error && <p>Servidor:{error}</p>}
+                        </Alert>
                         <Button
-                            type="button"
+                            type="submit"
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
@@ -84,11 +111,14 @@ export default function SignIn({hanlindLoguiado}) {
                         >
                             Entrar
                         </Button>
-                        </Link>
                     </Box>
+
+
                 </Box>
                 <Copyright sx={{ mt: 8, mb: 4 }} />
+
             </Container>
         </ThemeProvider>
+
     );
 }
