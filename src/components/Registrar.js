@@ -44,7 +44,7 @@ export default function Registrar({hanlindLoguiado}) {
         // signup(user.correo,user.contrasena);
         try {
             await signup(user.correo, user.contrasena);
-            navigate('/items');
+            navigate('/');
         } catch (error) {
             setError(error.message);
         }
@@ -70,7 +70,8 @@ export default function Registrar({hanlindLoguiado}) {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Agregar Admin
+                        Agregar Admin<br/>
+                        <span className='advertensia text-danger'>Seción para agregar otro admin</span>
                     </Typography>
 
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>

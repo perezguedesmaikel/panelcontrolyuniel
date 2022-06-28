@@ -5,15 +5,17 @@ import Items from "./components/items";
 import Registrar from "./components/Registrar";
 import {AuthProvider} from './context/authContext';
 import Login from "./components/login";
+import {ProtectedRoute} from "./components/protectedroute";
+
 function App() {
 
   return (
     <div className="App">
         <AuthProvider>
         <Routes>
-            <Route path='/' element={<Login/>}/>
-            <Route path='/registrar' element={<Registrar/>}/>
-            <Route path='/items' element={<Items/>}/>firebase
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/registrar' element={<ProtectedRoute><Registrar/></ProtectedRoute>}/>
+            <Route path='/' element={<ProtectedRoute><Items/></ProtectedRoute>}/>
         </Routes>
         </AuthProvider>
     </div>

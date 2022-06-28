@@ -44,9 +44,11 @@ export default function Login({hanlindLoguiado}) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         // signup(user.correo,user.contrasena);
+        navigate('/');
         try {
+
             await login(user.correo, user.contrasena);
-            navigate('/items');
+
         } catch (error) {
             setError(error.message);
         }
