@@ -11,12 +11,11 @@ const Input = styled('input')({
 
 export default function UploadButtons() {
     return (
-        <Stack direction="row" alignItems="center" spacing={2}>
-           <h2 className='text-primary'>cargar imagen ===></h2>
+        <Stack direction="row" alignItems="center" spacing={2} className='d-flex justify-content-center' >
             <label htmlFor="icon-button-file">
                 <Input accept="image/*" id="icon-button-file" type="file" />
                 <IconButton color="primary" aria-label="upload picture" component="span">
-                    <PhotoCamera />
+                    Cargar <PhotoCamera /> Imagen
                 </IconButton>
             </label>
         </Stack>

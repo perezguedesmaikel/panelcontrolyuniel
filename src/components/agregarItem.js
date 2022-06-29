@@ -12,15 +12,17 @@ function AgregarItem() {
             <form>
                 <div className="m-2">
                     <TextField
-                        id="outlined-helperText"
                         label="Nombre del producto"
                         fullWidth={true}
                     />
                   <UploadButtons/>
-
+                    <TextField
+                        className='mb-1'
+                        label="Valor en CUP"
+                        fullWidth={true}
+                    />
                 <TextField
                     className='mb-1'
-                    id="outlined-helperText"
                     label="Descripción del producto"
                     fullWidth={true}
                 />
