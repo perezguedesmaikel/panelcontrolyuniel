@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import TextField from '@mui/material/TextField';
 import {app} from '../firebase/nuevacredensial';
 import {styled} from '@mui/material/styles';
@@ -10,13 +10,7 @@ import Stack from '@mui/material/Stack';
 const Input = styled('input')({
     display: 'none',
 });
-const handlerSubmit=(e)=>{
-    e.preventDefault();
-    const {nombre} = e.target;
-    const {value: nombreArchivo} = nombre;
-    console.log(nombreArchivo);
 
-}
 
 function AgregarItem() {
     const [archivourl,setArchivourl]=useState('');
@@ -28,6 +22,26 @@ function AgregarItem() {
         const enlaceUrl=await archivoPath.getDownloadURL();
         setArchivourl(enlaceUrl);
     }
+    const handlerSubmit= async (e) => {
+        e.preventDefault();
+        const {nombre} = e.target;
+        const {value: nombreArchivo} = nombre;
+        const {valor} = e.target;
+        const {value: valorArchivo} = valor;
+        const {descripcion} = e.target;
+        const {value: descripcionArchivo} = descripcion;
+        //trabajo con firebase
+        const coleccionref = app.firestore().collection('tienda');
+        const docu = await coleccionref.doc(nombreArchivo).set({
+            nombre: nombreArchivo,
+            presio: valorArchivo,
+            imagen: archivourl,
+            descripcion: descripcionArchivo
+        })
+    }
+    useEffect(()=>{
+        const docusList=app.firestore().collection('tienda').get();
+    },[])
     return(
 
         <div className='m-1'><h2 className='m-1'>Agregar Item</h2>
@@ -48,11 +62,13 @@ function AgregarItem() {
                         </label>
                     </Stack>
                     <TextField
+                        name='valor'
                         className='mb-1'
                         label="Valor en CUP"
                         fullWidth={true}
                     />
                 <TextField
+                    name={'descripcion'}
                     className='mb-1 mt-1'
                     label="Descripción del producto"
                     fullWidth={true}
