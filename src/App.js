@@ -7,6 +7,7 @@ import Login from "./components/login";
 import {app} from './firebase/nuevacredensial';
 import NavBar from "./components/navBar";
 import Alert from "@mui/material/Alert";
+import AgregarItem from "./components/agregarItem";
 function App() {
     const[usuario,setUsuario]=useState(null);
     useEffect(()=>{
@@ -19,6 +20,7 @@ function App() {
         {usuario &&<NavBar/>}
         <Routes>
             {usuario?<Route path='/registrar' element={<Registrar setUsuario={setUsuario}/>}/>: <Route path='/registrar' element={<Login setUsuario={setUsuario}/>}/>}
+            {usuario?<Route path='/agregar' element={<AgregarItem setUsuario={setUsuario}/>}/>: <Route path='/agregar' element={<Login setUsuario={setUsuario}/>}/>}
             {usuario?<Route path='/' element={<Items/>}/>: <Route path='/' element={<Login setUsuario={setUsuario}/>}/>}
             <Route path='/*' element={<Alert variant="filled" severity="error">
                 Esa ruta no existe!!!

@@ -15,6 +15,9 @@ function NavBar() {
     const agregarAdmin=()=>{
         navigate('/registrar');
     }
+    const agregaritem=()=>{
+         navigate('/agregar');
+    }
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-primary">
             <div className="container-fluid">
@@ -30,7 +33,7 @@ function NavBar() {
                                 <Button variant="contained" color='primary' fullWidth={true} onClick={items}>Mostrar Tienda</Button>
                         </li>
                         <li className="nav-item">
-                              <Button variant="contained" color='primary' fullWidth={true}>Agregar Item</Button>
+                              <Button variant="contained" color='primary' fullWidth={true} onClick={agregaritem}>Agregar Item</Button>
                         </li>
                         <li className="nav-item">
                                 <Button variant="contained" color='primary' fullWidth={true} onClick={agregarAdmin}>Agregar Admin</Button></li>
