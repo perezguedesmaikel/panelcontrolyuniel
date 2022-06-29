@@ -5,11 +5,8 @@ import NavBar from "./navBar";
 
 function Items() {
     return(
-
         <>
-
             <div className='mb-4'>
-            <NavBar/>
             </div>
         <div className='container-fluid'>
             <h1>Vienvenido</h1>

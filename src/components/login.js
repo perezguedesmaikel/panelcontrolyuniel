@@ -11,6 +11,7 @@ import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import {useNavigate} from 'react-router-dom';
 import {app} from "../firebase/nuevacredensial";
+import Alert from "@mui/material/Alert";
 
 
 function Copyright(props) {
@@ -96,6 +97,9 @@ export default function Login(props) {
                             id="password"
                             autoComplete="Contraseña"
                         />
+                        {error2 && <Alert variant="filled" severity="error">
+                            {error2}
+                        </Alert>}
                         <Button
                             type="submit"
                             fullWidth

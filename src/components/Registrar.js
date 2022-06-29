@@ -69,7 +69,7 @@ export default function Registrar(props) {
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Agregar Admin<br/>
-                        <span className='advertensia text-danger'>Seción para agregar otro admin</span>
+                        <span className='advertensia text-danger'>Sesión para agregar otro admin</span>
                     </Typography>
 
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>

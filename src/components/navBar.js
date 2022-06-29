@@ -9,45 +9,31 @@ function NavBar() {
          await app.auth().signOut().then();
          navigate('/');
      }
+     const items=()=>{
+         navigate('/');
+     }
+    const agregarAdmin=()=>{
+        navigate('/registrar');
+    }
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-primary">
             <div className="container-fluid">
                 <a className="navbar-brand text-light" href="#">Administración:</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                <button className="navbar-toggler m-1" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"> </span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul className="d-flex  navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link to={'/items'} className="nav-link active text-light" aria-current="page" href="#">
-                              <Button variant="contained" color='primary'>Agregar Item</Button></Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to={'/registrar'} className="nav-link active text-light" aria-current="page" href="#">
-                                <Button variant="contained" color='primary'>Agregar Admin</Button></Link>
+                                <Button variant="contained" color='primary' fullWidth={true} onClick={items}>Mostrar Tienda</Button>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-light" href="#">Accesorios</a>
+                              <Button variant="contained" color='primary' fullWidth={true}>Agregar Item</Button>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-light" href="#">Aseo</a>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false">
-                                Ropa
-                            </a>
-                            <ul className="dropdown-menu text-light" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item " href="#">Blusa</a></li>
-                                <li><a className="dropdown-item " href="#">Licra</a></li>
-                                <li>
-                                    <hr className="dropdown-divider"/>
-                                </li>
-                                <li><a className="dropdown-item " href="#">Cartera</a></li>
-                            </ul>
-                        </li>
+                                <Button variant="contained" color='primary' fullWidth={true} onClick={agregarAdmin}>Agregar Admin</Button></li>
                     </ul>
                     <form className="d-flex  m-2">
                         <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
