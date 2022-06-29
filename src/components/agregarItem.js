@@ -2,10 +2,13 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import UploadButtons from "./upload";
-import TextareaAutosize from '@mui/material/TextareaAutosize';
+import {app} from '../firebase/nuevacredensial';
 
 
 function AgregarItem() {
+    const archivoHandler=()=>{
+
+    }
     return(
 
         <div className='m-1'><h2 className='m-1'>Agregar Item</h2>
@@ -15,14 +18,14 @@ function AgregarItem() {
                         label="Nombre del producto"
                         fullWidth={true}
                     />
-                  <UploadButtons/>
+                  <UploadButtons />
                     <TextField
                         className='mb-1'
                         label="Valor en CUP"
                         fullWidth={true}
                     />
                 <TextField
-                    className='mb-1'
+                    className='mb-1 mt-1'
                     label="Descripción del producto"
                     fullWidth={true}
                 />
