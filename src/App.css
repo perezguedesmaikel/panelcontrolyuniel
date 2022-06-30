@@ -21,12 +21,17 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
-
+#card{
+  width: 350px;
+}
 .App-link {
   color: rgb(112, 76, 182);
 }
 .advertensia{
   font-size: 17px;
+}
+.imagen{
+  display:none!important;
 }
 
 @keyframes App-logo-float {

@@ -12,9 +12,7 @@ import {createTheme, ThemeProvider} from '@mui/material/styles';
 import {useNavigate} from 'react-router-dom';
 import {app} from '../firebase/nuevacredensial';
 import Alert from "@mui/material/Alert";
-
 function Copyright(props) {
-
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
@@ -26,9 +24,7 @@ function Copyright(props) {
         </Typography>
     );
 }
-
 const theme = createTheme();
-
 export default function Registrar(props) {
     const [error2,setError2]=useState(null);
     const navigate=useNavigate();
@@ -48,8 +44,6 @@ export default function Registrar(props) {
         );
 
     };
-
-
     return (
         <ThemeProvider theme={theme}>
 

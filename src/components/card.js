@@ -33,7 +33,7 @@ export default function RecipeReviewCard(props) {
     };
 
     return (
-        <Card sx={{ maxWidth: 345 }} className='m-1'>
+        <Card sx={{ maxWidth: 345 }} className='m-1' id={'card'}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -45,6 +45,7 @@ export default function RecipeReviewCard(props) {
                         <MoreVertIcon />
                     </IconButton>
                 }
+                className='fs-1'
                 title={`${props.name}`}
             />
             <CardMedia
