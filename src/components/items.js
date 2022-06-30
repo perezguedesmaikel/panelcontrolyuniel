@@ -3,7 +3,8 @@ import RecipeReviewCard from "./card";
 import NavBar from "./navBar";
 
 //ecomerce
-function Items() {
+function Items(props) {
+
     return(
         <>
             <div className='mb-4'>
@@ -11,14 +12,11 @@ function Items() {
         <div className='container-fluid'>
             <h1>Vienvenido</h1>
             <div className='d-flex flex-wrap justify-content-center'>
-                <RecipeReviewCard/>
-                <RecipeReviewCard/>
-                <RecipeReviewCard/>
-                <RecipeReviewCard/>
-                <RecipeReviewCard/>
-                <RecipeReviewCard/>
-                <RecipeReviewCard/>
-                <RecipeReviewCard/>
+                {props.items.map((item,index)=><div key={index}><RecipeReviewCard name={item.nombre} descripcion={item.descripcion}
+                presio={item.presio} imagen={item.imagen}
+                /></div>)}
+
+
             </div>
         </div>
         </>

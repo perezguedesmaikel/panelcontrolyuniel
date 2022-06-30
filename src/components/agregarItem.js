@@ -12,10 +12,11 @@ const Input = styled('input')({
 });
 
 
-function AgregarItem() {
+function AgregarItem(props) {
     const [archivourl,setArchivourl]=useState('');
     const archivoHandler= async (e) => {
         const archivo = e.target.files[0];
+        console.log(archivo);
         const storageRef = app.storage().ref();
         const archivoPath = storageRef.child(archivo.name);
         await archivoPath.put(archivo);
@@ -39,9 +40,7 @@ function AgregarItem() {
             descripcion: descripcionArchivo
         })
     }
-    useEffect(()=>{
-        const docusList=app.firestore().collection('tienda').get();
-    },[])
+
     return(
 
         <div className='m-1'><h2 className='m-1'>Agregar Item</h2>
