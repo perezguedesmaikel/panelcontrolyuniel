@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import TextField from '@mui/material/TextField';
 import {app} from '../firebase/nuevacredensial';
 import {styled} from '@mui/material/styles';
@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Stack from '@mui/material/Stack';
 import Alert from "@mui/material/Alert";
-import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid';
 import {useNavigate} from "react-router-dom";
 
 const Input = styled('input')({
@@ -20,23 +20,28 @@ const inicialState={
     valor:0
 }
 
-
+let archivo;
+let archivoPath;
 function AgregarItem(props) {
     const navigate=useNavigate();
     let id=uuidv4();
-    const [archivourl,setArchivourl]=useState('');
     const [submite,setsubmite]=useState(false);
-    const archivoHandler= async (e) => {
-        const archivo = e.target.files[0];
-        const storageRef = app.storage().ref();
-        const archivoPath = storageRef.child(archivo.name);
-        await archivoPath.put(archivo);
-        const enlaceUrl=await archivoPath.getDownloadURL();
-        setArchivourl(enlaceUrl);
+    const [archivoload,setArchivoload]=useState(null);
 
+
+    let archivourl;
+    const archivoHandler=(e) => {
+        archivo = e.target.files[0];
+        setArchivoload(archivo.name);
+        const storageRef = app.storage().ref();
+        archivoPath = storageRef.child(archivo.name);
     }
     const handlerSubmit= async (e) => {
         e.preventDefault();
+        setsubmite(true);
+        await archivoPath.put(archivo);
+        archivourl=await archivoPath.getDownloadURL();
+        //subir imagen
         const {nombre} = e.target;
         const {value: nombreArchivo} = nombre;
         const {valor} = e.target;
@@ -77,8 +82,8 @@ function AgregarItem(props) {
                             </IconButton>
                         </label>
                     </Stack>
-                    <Alert variant="filled" severity="success" className={`mb-2  ${archivourl!==''?'':'imagen'}`} >
-                        La imagen se envió con exito al server!
+                    <Alert variant="filled" severity="success" className={`mb-2  ${archivoload?'':'imagen'}`} >
+                        {archivoload && archivoload+' está listo para ser enviado'}
                     </Alert>
                     <TextField
                         name='valor'
@@ -95,7 +100,7 @@ function AgregarItem(props) {
                 <button type="submit" className="btn btn-primary mt-1">Agregar</button>
                 </div>
                 <Alert variant="filled" severity="success" className={`mb-2  ${submite?'':'imagen'}`} >
-                    Datos enviados al server con exito!
+                    Espere unos segundos por favor!
                 </Alert>
             </form>
 
