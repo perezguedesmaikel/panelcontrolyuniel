@@ -1,9 +1,8 @@
 import React from "react";
 import RecipeReviewCard from "./card";
-import NavBar from "./navBar";
 
 //ecomerce
-function Items(props) {
+function Items() {
 
     return(
         <>
@@ -12,9 +11,15 @@ function Items(props) {
         <div className='container-fluid'>
             <h1>Vienvenido</h1>
             <div className='d-flex flex-wrap justify-content-center'>
-                {props.items.map((item,index)=><div key={index}><RecipeReviewCard name={item.nombre} descripcion={item.descripcion}
-                presio={item.presio} imagen={item.imagen}
-                /></div>)}
+                <RecipeReviewCard/>
+                <RecipeReviewCard/>
+                <RecipeReviewCard/>
+                <RecipeReviewCard/>
+                <RecipeReviewCard/>
+                <RecipeReviewCard/>
+                <RecipeReviewCard/>
+                <RecipeReviewCard/>
+
 
 
             </div>
