@@ -12,6 +12,12 @@ import { v4 as uuidv4 } from 'uuid';
 const Input = styled('input')({
     display: 'none',
 });
+const inicialState={
+    nombre:'',
+    descripcion:'',
+    url:'',
+    valor:0
+}
 
 
 function AgregarItem(props) {
