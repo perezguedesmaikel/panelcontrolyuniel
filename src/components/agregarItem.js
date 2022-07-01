@@ -8,6 +8,7 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Stack from '@mui/material/Stack';
 import Alert from "@mui/material/Alert";
 import { v4 as uuidv4 } from 'uuid';
+import {useNavigate} from "react-router-dom";
 
 const Input = styled('input')({
     display: 'none',
@@ -21,9 +22,9 @@ const inicialState={
 
 
 function AgregarItem(props) {
+    const navigate=useNavigate();
     let id=uuidv4();
     const [archivourl,setArchivourl]=useState('');
-    const [imagencargada,setImagencargada]=useState(false);
     const [submite,setsubmite]=useState(false);
     const archivoHandler= async (e) => {
         const archivo = e.target.files[0];
@@ -32,10 +33,9 @@ function AgregarItem(props) {
         await archivoPath.put(archivo);
         const enlaceUrl=await archivoPath.getDownloadURL();
         setArchivourl(enlaceUrl);
-        setImagencargada(true);
+
     }
     const handlerSubmit= async (e) => {
-        setImagencargada(false);
         e.preventDefault();
         const {nombre} = e.target;
         const {value: nombreArchivo} = nombre;
@@ -55,6 +55,7 @@ function AgregarItem(props) {
         setTimeout(function(){
             setsubmite(false);
         }, 2000);
+        navigate('/');
     }
 
     return(
@@ -76,8 +77,8 @@ function AgregarItem(props) {
                             </IconButton>
                         </label>
                     </Stack>
-                    <Alert variant="filled" severity="success" className={`mb-2  ${imagencargada?'':'imagen'}`} >
-                        La imagen se cargo con exito!
+                    <Alert variant="filled" severity="success" className={`mb-2  ${archivourl!==''?'':'imagen'}`} >
+                        La imagen se envió con exito al server!
                     </Alert>
                     <TextField
                         name='valor'
