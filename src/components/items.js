@@ -2,24 +2,29 @@ import React, {useEffect, useState} from "react";
 import RecipeReviewCard from "./card";
 import {app} from "../firebase/nuevacredensial"
 import ModalBorrar from "./modalBorrar";
-import Card from "@mui/material/Card";
+import {useNavigate} from "react-router-dom";
 
 
 //ecomerce
+
 function Items() {
+    const navigate=useNavigate();
     const [docus,setdocus]=useState([]);
     const[idborrar,setIdBorrar]=useState(null);
-    function obteniendoid(valor){
+    const[archivoName,setArchivoName]=useState('');
+    function obteniendoid(valor,valor2){
+        setArchivoName(valor2);
         setIdBorrar(valor);
     }
     useEffect(()=>{
-        async function consultar() {
+     async function consultar() {
             const docusList = await app.firestore().collection("tienda").get();
             setdocus(docusList.docs.map(doc => doc.data()));
         }
         consultar().then();
 
     },[]);
+
 
     return(
         <>
@@ -30,7 +35,7 @@ function Items() {
             <div className='d-flex flex-wrap justify-content-center'>
                 {
                     docus.map(item=><RecipeReviewCard nombre={item.nombre} descripcion={item.descripcion} url={item.imagen}
-                                                      obteniendoid={()=>obteniendoid(item.id)}/>)
+                                                      obteniendoid={()=>obteniendoid(item.id,item.archivoName)}/>)
                 }
 
 
@@ -39,7 +44,7 @@ function Items() {
 
             </div>
         </div>
-            <ModalBorrar idborrar={idborrar}/>
+            <ModalBorrar idborrar={idborrar} archivoName={archivoName} />
         </>
     )
 

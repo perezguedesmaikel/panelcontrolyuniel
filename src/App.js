@@ -8,6 +8,7 @@ import {app} from './firebase/nuevacredensial';
 import NavBar from "./components/navBar";
 import Alert from "@mui/material/Alert";
 import AgregarItem from "./components/agregarItem";
+import Log from "./components/log";
 function App() {
 //para hacer commit
     const[usuario,setUsuario]=useState(null);
@@ -22,6 +23,7 @@ function App() {
         {usuario &&<NavBar/>}
         <Routes>
             {usuario?<Route path='/registrar' element={<Registrar setUsuario={setUsuario}/>}/>: <Route path='/registrar' element={<Login setUsuario={setUsuario}/>}/>}
+            {usuario?<Route path='/log' element={<Log/>}/>: <Route path='/log' element={<Login setUsuario={setUsuario}/>}/>}
             {usuario?<Route path='/agregar' element={<AgregarItem/>}/>: <Route path='/agregar' element={<Login setUsuario={setUsuario}/>}/>}
             {usuario?<Route path='/' element={<Items />}/>: <Route path='/' element={<Login setUsuario={setUsuario}/>}/>}
             <Route path='/*' element={<Alert variant="filled" severity="error">

@@ -1,11 +1,23 @@
 import React from "react";
 import {AiFillDelete} from "react-icons/ai";
 import {app} from "../firebase/nuevacredensial";
+import {useNavigate} from "react-router-dom";
+import { getStorage, ref,deleteObject} from "@firebase/storage";
 
 function ModalBorrar(props) {
+    const navigate=useNavigate();
     async function handlerEliminar() {
+        const storage = getStorage();
+        console.log(props.archivoName);
+        const desertRef = ref(storage, props.archivoName);
+        deleteObject(desertRef).then(() => {
+          console.log("se borro bien");
+        }).catch((error) => {
+            console.log(error);
+        });
         const coleccionref = app.firestore().collection('tienda');
         await coleccionref.doc(props.idborrar).delete();
+        navigate("/log");
     }
     return(
         <div>

@@ -52,6 +52,7 @@ function AgregarItem(props) {
         const coleccionref = app.firestore().collection('tienda');
         const docu = await coleccionref.doc(id).set({
             id:id,
+            archivoName:archivoload,
             nombre: nombreArchivo,
             presio: valorArchivo,
             imagen: archivourl,
@@ -98,11 +99,12 @@ function AgregarItem(props) {
                     label="Descripción del producto"
                     fullWidth={true}
                 />
-                <button type="submit" className="btn btn-primary mt-1">Agregar</button>
+                    <Alert variant="filled" severity="success" className={`mb-2  ${submite?'':'imagen'}`} >
+                        Espere unos segundos por favor!
+                    </Alert>
+                <button type="submit" className={`btn btn-primary mt-1 ${submite?'imagen':''}`}>Agregar</button>
                 </div>
-                <Alert variant="filled" severity="success" className={`mb-2  ${submite?'':'imagen'}`} >
-                    Espere unos segundos por favor!
-                </Alert>
+
             </form>
 
         </div>
