@@ -1,8 +1,10 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import {Link, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
-import {app} from '../firebase/nuevacredensial'
+import {app} from '../firebase/nuevacredensial';
+import { AiFillSetting } from "react-icons/ai";
+
 function NavBar() {
     const navigate=useNavigate();
      const  handerlogaout=  async () => {
@@ -21,7 +23,7 @@ function NavBar() {
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-primary">
             <div className="container-fluid">
-                <a className="navbar-brand text-light" href="#">Administración:</a>
+                <a className="navbar-brand text-light" href="#"><AiFillSetting/> Administración:</a>
                 <button className="navbar-toggler m-1" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">

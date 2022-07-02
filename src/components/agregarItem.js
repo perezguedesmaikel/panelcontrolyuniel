@@ -51,6 +51,7 @@ function AgregarItem(props) {
         //trabajo con firebase
         const coleccionref = app.firestore().collection('tienda');
         const docu = await coleccionref.doc(id).set({
+            id:id,
             nombre: nombreArchivo,
             presio: valorArchivo,
             imagen: archivourl,
@@ -59,7 +60,7 @@ function AgregarItem(props) {
         setsubmite(true);
         setTimeout(function(){
             setsubmite(false);
-        }, 2000);
+        }, 500);
         navigate('/');
     }
 

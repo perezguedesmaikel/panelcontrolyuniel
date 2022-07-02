@@ -18,6 +18,7 @@ import ModalBorrar from "./modalBorrar";
 
 export default function RecipeReviewCard(props) {
 
+
     return (
         <Card sx={{ width: 345, height:500,margin:1}}>
             <CardHeader
@@ -52,12 +53,11 @@ export default function RecipeReviewCard(props) {
                 <IconButton aria-label="share">
                     <ShareIcon />
                 </IconButton>
-                <IconButton aria-label="share" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <IconButton aria-label="share" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={props.obteniendoid}>
                  <AiFillDelete className='text-danger'/>
                 </IconButton>
 
             </CardActions>
-     <ModalBorrar/>
         </Card>
     );
 }

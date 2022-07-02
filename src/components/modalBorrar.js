@@ -1,7 +1,12 @@
 import React from "react";
 import {AiFillDelete} from "react-icons/ai";
+import {app} from "../firebase/nuevacredensial";
 
-function ModalBorrar() {
+function ModalBorrar(props) {
+    async function handlerEliminar() {
+        const coleccionref = app.firestore().collection('tienda');
+        await coleccionref.doc(props.idborrar).delete();
+    }
     return(
         <div>
 
@@ -19,7 +24,7 @@ function ModalBorrar() {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
+                            <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={handlerEliminar}>Eliminar</button>
                         </div>
                     </div>
                 </div>
