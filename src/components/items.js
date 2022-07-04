@@ -31,7 +31,7 @@ function Items() {
             <div className='mb-4'>
             </div>
         <div className='container-fluid'>
-            <h1>Vienvenido</h1>
+            <h1>Bienvenido</h1>
             <div className='d-flex flex-wrap justify-content-center'>
                 {
                     docus.map(item=><RecipeReviewCard nombre={item.nombre} descripcion={item.descripcion} url={item.imagen}

@@ -8,12 +8,11 @@ import 'firebase/compat/firestore';
 
 
 export const app=firebase.initializeApp({
-    "projectId": "mabrissconfig",
-    "appId": "1:728649697506:web:955fd2cdf8339ca29fb6bb",
-    "storageBucket": "mabrissconfig.appspot.com",
+    "projectId": "mabriss-web",
+    "appId": "1:637081266217:web:aa9b05e15989702823d438",
+    "storageBucket": "mabriss-web.appspot.com",
     "locationId": "us-central",
-    "apiKey": "AIzaSyCPEEmNFproaIqL-sDNQIjhOQNOMgmCqE8",
-    "authDomain": "mabrissconfig.firebaseapp.com",
-    "messagingSenderId": "728649697506",
-    "measurementId": "G-44ZTQ61DHC"
+    "apiKey": "AIzaSyBSmnK3QK6sJvZWZKa32j89C0jjiofD_mU",
+    "authDomain": "mabriss-web.firebaseapp.com",
+    "messagingSenderId": "637081266217"
 });
