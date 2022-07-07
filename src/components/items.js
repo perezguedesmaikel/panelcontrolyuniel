@@ -3,6 +3,7 @@ import RecipeReviewCard from "./card";
 import {app} from "../firebase/nuevacredensial"
 import ModalBorrar from "./modalBorrar";
 import {useNavigate} from "react-router-dom";
+import {supabase} from "../firebase/supabase";
 
 
 //ecomerce
@@ -18,9 +19,13 @@ function Items() {
     }
     useEffect(()=>{
      async function consultar() {
-            const docusList = await app.firestore().collection("tienda").get();
-            setdocus(docusList.docs.map(doc => doc.data()));
+            //const docusList = await app.firestore().collection("tienda").get();
+            //setdocus(docusList.docs.map(doc => doc.data()));
+         const { data, error } = await supabase.from('tienda').select();
+         error?console.log(error.message):console.log(data);
+         setdocus(data);
         }
+
         consultar().then();
 
     },[]);

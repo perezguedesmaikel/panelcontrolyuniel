@@ -49,15 +49,7 @@ function AgregarItem(props) {
         const {descripcion} = e.target;
         const {value: descripcionArchivo} = descripcion;
         //trabajo con firebase
-        const coleccionref = app.firestore().collection('tienda');
-        const docu = await coleccionref.doc(id).set({
-            id:id,
-            archivoName:archivoload,
-            nombre: nombreArchivo,
-            presio: valorArchivo,
-            imagen: archivourl,
-            descripcion: descripcionArchivo
-        });
+        //nuevo
         const { data, error } = await supabase
             .from('tienda')
             .insert([
@@ -65,6 +57,7 @@ function AgregarItem(props) {
                 imagen:archivourl
                 }
             ])
+        //nuevo
         setsubmite(true);
         setTimeout(function(){
             setsubmite(false);
