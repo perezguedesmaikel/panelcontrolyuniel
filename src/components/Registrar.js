@@ -35,6 +35,7 @@ export default function Registrar() {
         const email=data.get('email');
         const password=data.get('password');
         signup(email,password);
+        navigate('/');
 
     };
     return (

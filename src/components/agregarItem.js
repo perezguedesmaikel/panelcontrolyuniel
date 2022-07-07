@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack';
 import Alert from "@mui/material/Alert";
 import {v4 as uuidv4} from 'uuid';
 import {useNavigate} from "react-router-dom";
-
+import {supabase} from '../firebase/supabase'
 const Input = styled('input')({
     display: 'none',
 });
@@ -58,6 +58,13 @@ function AgregarItem(props) {
             imagen: archivourl,
             descripcion: descripcionArchivo
         });
+        const { data, error } = await supabase
+            .from('tienda')
+            .insert([
+                { nombre: nombreArchivo, descripcion: descripcionArchivo,archivoname:archivoload,presio:valorArchivo,
+                imagen:archivourl
+                }
+            ])
         setsubmite(true);
         setTimeout(function(){
             setsubmite(false);
