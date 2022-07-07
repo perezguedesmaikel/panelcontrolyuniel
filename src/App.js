@@ -13,13 +13,14 @@ import {useAuth} from './context/authcontext'
 import {supabase} from "./firebase/supabase";
 function App() {
 //para hacer commit
-    const {user}=useAuth();
-    console.log(user);
+    const {session,setSession}=useAuth();
+
+    console.log(session);
 
 
   return (
     <div className="App">
-        {user &&<NavBar/>}
+        {session &&<NavBar/>}
         <Routes>
             <Route path='/registrar' element={<ProtectedRoute>Registrar/></ProtectedRoute>}/>
             <Route path='/log' element={<ProtectedRoute><Log/></ProtectedRoute>}/>

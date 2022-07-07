@@ -10,7 +10,8 @@ export const authContext=createContext({});
  }
 
 export function AuthProvider({children}) {
-    const [user,setUser]=useState(null);
+     const [session,setSession]=useState(supabase.auth.session());
+
 
     const signup= async (email, password) => {
 
@@ -28,11 +29,11 @@ export function AuthProvider({children}) {
     }
     useEffect(()=>{
        supabase.auth.onAuthStateChange((event, session) => {
-            setUser(user);
+            setSession(session);
         })
     },[]);
     return(
-        <authContext.Provider value={{signup,user}}>
+        <authContext.Provider value={{signup,session,setSession}}>
             {children}
         </authContext.Provider>
     )
