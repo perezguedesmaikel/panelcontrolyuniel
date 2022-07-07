@@ -33,16 +33,24 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
-    const {login,error2}=useAuth();
     const navigate=useNavigate();
+    const [error2,setError2]=useState(null);
     const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         const email=data.get('email');
         const password=data.get('password');
+        try{
+            const {user, session, error} = await supabase.auth.signIn({
+                email: email,
+                password: password
+            })
+            error?setError2(error.message):navigate('/');
 
-             login(email,password);
-             navigate('/');
+        }catch (e) {
+            console.log(e.message());
+        }
+
 
 
     };

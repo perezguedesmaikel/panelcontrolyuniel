@@ -10,22 +10,8 @@ export const authContext=createContext({});
  }
 
 export function AuthProvider({children}) {
-     const [session,setSession]=useState(null);
-    const [error2,setError2]=useState(null);
-    const login= async (email, password) => {
+    const [user,setUser]=useState(null);
 
-        try{
-            const {user, session, error} = await supabase.auth.signIn({
-                email: email,
-                password: password
-            })
-            error?setError2(error.message):console.log('Se ha loguiado satisfactoriamente');
-
-        }catch (e) {
-            console.log(e.message());
-        }
-
-    }
     const signup= async (email, password) => {
 
         try{
@@ -41,12 +27,12 @@ export function AuthProvider({children}) {
 
     }
     useEffect(()=>{
-        supabase.auth.onAuthStateChange((event, session) => {
-            setSession(session);
+       supabase.auth.onAuthStateChange((event, session) => {
+            setUser(user);
         })
     },[]);
     return(
-        <authContext.Provider value={{login,signup,error2,session}}>
+        <authContext.Provider value={{signup,user}}>
             {children}
         </authContext.Provider>
     )
