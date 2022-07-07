@@ -9,6 +9,7 @@ import NavBar from "./components/navBar";
 import Alert from "@mui/material/Alert";
 import AgregarItem from "./components/agregarItem";
 import Log from "./components/log";
+import {ProtectedRoute} from "./components/protectedRoute";
 function App() {
 //para hacer commit
     const[usuario,setUsuario]=useState(null);
@@ -22,10 +23,11 @@ function App() {
     <div className="App">
         {usuario &&<NavBar/>}
         <Routes>
-            {usuario?<Route path='/registrar' element={<Registrar setUsuario={setUsuario}/>}/>: <Route path='/registrar' element={<Login setUsuario={setUsuario}/>}/>}
-            {usuario?<Route path='/log' element={<Log/>}/>: <Route path='/log' element={<Login setUsuario={setUsuario}/>}/>}
-            {usuario?<Route path='/agregar' element={<AgregarItem/>}/>: <Route path='/agregar' element={<Login setUsuario={setUsuario}/>}/>}
-            {usuario?<Route path='/' element={<Items />}/>: <Route path='/' element={<Login setUsuario={setUsuario}/>}/>}
+            <Route path='/registrar' element={<ProtectedRoute>Registrar/></ProtectedRoute>}/>
+            <Route path='/log' element={<ProtectedRoute><Log/></ProtectedRoute>}/>
+            <Route path='/agregar' element={<ProtectedRoute><AgregarItem/></ProtectedRoute>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/' element={<ProtectedRoute><Items /></ProtectedRoute>}/>
             <Route path='/*' element={<Alert variant="filled" severity="error">
                 Esa ruta no existe!!!
             </Alert>}/>

@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import {useNavigate} from 'react-router-dom';
-import {app} from '../firebase/nuevacredensial';
+import {useAuth} from '../context/authcontext';
 import Alert from "@mui/material/Alert";
 function Copyright(props) {
     return (
@@ -25,23 +25,16 @@ function Copyright(props) {
     );
 }
 const theme = createTheme();
-export default function Registrar(props) {
+export default function Registrar() {
+    const {signup}=useAuth();
     const [error2,setError2]=useState(null);
     const navigate=useNavigate();
     const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-       await app.auth().createUserWithEmailAndPassword(data.get('email').toString(),data.get('password').toString())
-            .then(
-                usuarioFirebase=>{
-                    props.setUsuario(usuarioFirebase);
-                    navigate('/');
-                }
-            ).catch(
-                error=>{
-                    setError2(error.message)}
-
-        );
+        const email=data.get('email');
+        const password=data.get('password');
+        signup(email,password);
 
     };
     return (

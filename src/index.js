@@ -6,13 +6,16 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import {AuthProvider} from "./context/authcontext";
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
 
     <Provider store={store}>
+        <AuthProvider>
      <BrowserRouter><App/></BrowserRouter>
+        </AuthProvider>
     </Provider>
 
 );

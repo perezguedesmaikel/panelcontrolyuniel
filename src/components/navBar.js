@@ -4,12 +4,12 @@ import {useNavigate} from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
 import {app} from '../firebase/nuevacredensial';
 import { AiFillSetting } from "react-icons/ai";
+import {supabase} from "../firebase/supabase";
 
 function NavBar() {
     const navigate=useNavigate();
      const  handerlogaout=  async () => {
-         await app.auth().signOut().then();
-         navigate('/');
+         const { error } = await supabase.auth.signOut();
      }
      const items=()=>{
          navigate('/');
