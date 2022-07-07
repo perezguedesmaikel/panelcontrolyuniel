@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack';
 import Alert from "@mui/material/Alert";
 import {v4 as uuidv4} from 'uuid';
 import {useNavigate} from "react-router-dom";
-import {supabase} from '../firebase/supabase'
+import {supabase} from '../firebase/supabase';
 const Input = styled('input')({
     display: 'none',
 });
@@ -30,7 +30,7 @@ function AgregarItem(props) {
 
 
     let archivourl;
-    const archivoHandler=(e) => {
+    const archivoHandler= async (e) => {
         archivo = e.target.files[0];
         setArchivoload(archivo.name);
         const storageRef = app.storage().ref();
@@ -40,8 +40,30 @@ function AgregarItem(props) {
         e.preventDefault();
         setsubmite(true);
         await archivoPath.put(archivo);
-        archivourl=await archivoPath.getDownloadURL();
         //subir imagen
+        try{
+            const { data, error } = await supabase
+                .storage
+                .from('mabriss')
+                .upload(archivoload.toString(), archivo, {
+                    cacheControl: '3600',
+                    upsert: false
+                });
+            const { publicURL, error2 } = supabase
+                .storage
+                .from('mabriss')
+                .getPublicUrl(archivoload.toString());
+
+            error2?console.log(error2.message):archivourl=publicURL;
+            error?console.log(error.message+'tipo imagen-mal'):console.log(data+'tipo imagen-bien');
+            //sigo probando
+
+        }catch (e) {
+            console.log(e.message+'tipo imagen');
+
+        }
+
+        //prueba subir imagen
         const {nombre} = e.target;
         const {value: nombreArchivo} = nombre;
         const {valor} = e.target;
