@@ -15,11 +15,12 @@ function Items() {
     function obteniendoid(valor,valor2){
         setArchivoName(valor2);
         setIdBorrar(valor);
+
     }
     useEffect(()=>{
      async function consultar() {
          const { data, error } = await supabase.from('tienda').select();
-         error?console.log(error.message):console.log(data);
+         error&&console.log(error.message);
          setdocus(data);
         }
 
@@ -36,8 +37,8 @@ function Items() {
             <h1>Bienvenido</h1>
             <div className='d-flex flex-wrap justify-content-center'>
                 {
-                    docus.map((item,index)=><RecipeReviewCard key={index} nombre={item.nombre} descripcion={item.descripcion} url={item.imagen}
-                                                      obteniendoid={()=>obteniendoid(item.id,item.archivoName)}/>)
+                    docus.map(item=><RecipeReviewCard key={item.id} nombre={item.nombre} descripcion={item.descripcion} url={item.imagen}
+                                                      obteniendoid={()=>obteniendoid(item.id,item.archivoname)}/>)
                 }
 
 

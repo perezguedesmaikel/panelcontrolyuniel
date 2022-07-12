@@ -10,6 +10,10 @@ import Alert from "@mui/material/Alert";
 import {v4 as uuidv4} from 'uuid';
 import {useNavigate} from "react-router-dom";
 import {supabase} from '../firebase/supabase';
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import BasicSelect from "./selectbasico";
+import CanvasDelSelect from "./canvas_del_select";
 const Input = styled('input')({
     display: 'none',
 });
@@ -24,22 +28,16 @@ let archivo;
 let archivoPath;
 function AgregarItem(props) {
     const navigate=useNavigate();
-    let id=uuidv4();
     const [submite,setsubmite]=useState(false);
     const [archivoload,setArchivoload]=useState(null);
-
-
     let archivourl;
     const archivoHandler= async (e) => {
         archivo = e.target.files[0];
         setArchivoload(archivo.name);
-        const storageRef = app.storage().ref();
-        archivoPath = storageRef.child(archivo.name);
     }
     const handlerSubmit= async (e) => {
         e.preventDefault();
         setsubmite(true);
-        await archivoPath.put(archivo);
         //subir imagen
         try{
             const { data, error } = await supabase
@@ -55,7 +53,7 @@ function AgregarItem(props) {
                 .getPublicUrl(archivoload.toString());
 
             error2?console.log(error2.message):archivourl=publicURL;
-            error?console.log(error.message+'tipo imagen-mal'):console.log(data+'tipo imagen-bien');
+            error&&console.log(error.message);
             //sigo probando
 
         }catch (e) {
@@ -92,6 +90,7 @@ function AgregarItem(props) {
         <div className='m-1'><h2 className='m-1'>Agregar Item</h2>
             <form onSubmit={handlerSubmit}>
                 <div className="m-2">
+                    <BasicSelect/>
                     <TextField
                         label="Nombre del producto"
                         name='nombre'

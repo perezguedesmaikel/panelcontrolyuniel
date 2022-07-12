@@ -10,6 +10,7 @@ import Log from "./components/log";
 import {ProtectedRoute} from "./components/protectedRoute";
 import {useAuth} from './context/authcontext'
 import Registrar from "./components/Registrar";
+import AgregarCategoria from "./components/agregarCategoria";
 function App() {
     const {session}=useAuth();
   return (
@@ -17,6 +18,7 @@ function App() {
         {session &&<NavBar/>}
         <Routes>
             <Route path='/registrar' element={<ProtectedRoute><Registrar/></ProtectedRoute>}/>
+            <Route path='/categoria' element={<ProtectedRoute><AgregarCategoria/></ProtectedRoute>}/>
             <Route path='/log' element={<ProtectedRoute><Log/></ProtectedRoute>}/>
             <Route path='/agregar' element={<ProtectedRoute><AgregarItem/></ProtectedRoute>}/>
             <Route path='/login' element={<Login/>}/>

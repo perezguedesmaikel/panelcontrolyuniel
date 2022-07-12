@@ -1,23 +1,33 @@
 import React from "react";
 import {AiFillDelete} from "react-icons/ai";
-import {app} from "../firebase/nuevacredensial";
 import {useNavigate} from "react-router-dom";
-import { getStorage, ref,deleteObject} from "@firebase/storage";
+import {supabase} from "../firebase/supabase";
 
 function ModalBorrar(props) {
     const navigate=useNavigate();
     async function handlerEliminar() {
-        const storage = getStorage();
-        console.log(props.archivoName);
-        const desertRef = ref(storage, props.archivoName);
-        deleteObject(desertRef).then(() => {
-          console.log("se borro bien");
-        }).catch((error) => {
-            console.log(error);
-        });
-        const coleccionref = app.firestore().collection('tienda');
-        await coleccionref.doc(props.idborrar).delete();
-        navigate("/log");
+        try{
+            const { data, error } = await supabase
+                .storage
+                .from('mabriss')
+                .remove([props.archivoName])
+            error ? console.log(error.message):console.log(data);
+
+        }catch (e) {
+            console.log(e.message);
+        }
+        try{
+            const { data, error } = await supabase
+                .from('tienda')
+                .delete()
+                .match({ id: props.idborrar })
+            error && console.log(error.message);
+
+            navigate("/log");
+        }catch (e) {
+            console.log(e.message);
+        }
+
     }
     return(
         <div>

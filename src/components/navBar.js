@@ -20,8 +20,11 @@ function NavBar() {
     const agregaritem=()=>{
          navigate('/agregar');
     }
+    const agregarCategoria=()=>{
+         navigate('/categoria');
+    }
     return(
-        <nav className="navbar navbar-expand-lg navbar-light bg-primary">
+        <nav className="navbar navbar-expand-lg navbar-light bg-primary sticky-top">
             <div className="container-fluid">
                 <a className="navbar-brand text-light" href="#"><AiFillSetting/> Administración:</a>
                 <button className="navbar-toggler m-1" type="button" data-bs-toggle="collapse"
@@ -36,6 +39,9 @@ function NavBar() {
                         </li>
                         <li className="nav-item">
                               <Button variant="contained" color='primary' fullWidth={true} onClick={agregaritem}>Agregar Item</Button>
+                        </li>
+                        <li className="nav-item">
+                            <Button variant="contained" color='primary' fullWidth={true} onClick={agregarCategoria}>Agregar Categoria</Button>
                         </li>
                         <li className="nav-item">
                                 <Button variant="contained" color='primary' fullWidth={true} onClick={agregarAdmin}>Agregar Admin</Button></li>
