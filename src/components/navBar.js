@@ -23,6 +23,9 @@ function NavBar() {
     const agregarCategoria=()=>{
          navigate('/categoria');
     }
+    const verTienda=()=>{
+         navigate('/iframe');
+    }
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-primary sticky-top">
             <div className="container-fluid">
@@ -35,13 +38,16 @@ function NavBar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="d-flex  navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                                <Button variant="contained" color='primary' fullWidth={true} onClick={items}>Mostrar Tienda</Button>
+                                <Button variant="contained" color='primary' fullWidth={true} onClick={items}>Editar Item</Button>
                         </li>
                         <li className="nav-item">
                               <Button variant="contained" color='primary' fullWidth={true} onClick={agregaritem}>Agregar Item</Button>
                         </li>
                         <li className="nav-item">
                             <Button variant="contained" color='primary' fullWidth={true} onClick={agregarCategoria}>Agregar Categoria</Button>
+                        </li>
+                        <li className="nav-item">
+                            <Button variant="contained" color='primary' fullWidth={true} onClick={verTienda}>Mostrar tienda</Button>
                         </li>
                         <li className="nav-item">
                                 <Button variant="contained" color='primary' fullWidth={true} onClick={agregarAdmin}>Agregar Admin</Button></li>

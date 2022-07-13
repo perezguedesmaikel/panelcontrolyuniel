@@ -88,8 +88,8 @@ function AgregarItem(props) {
     }
 
     return(
-
-        <div className='m-1'><h2 className='m-1'>Agregar Item</h2>
+        <div>
+        <div className='m-1 '><h2 className='m-1'>Agregar Item</h2>
             <form onSubmit={handlerSubmit}>
                 <div className="m-2">
                     <BasicSelect dataSelect={props.dataselect} name={'categoria'}/>
@@ -131,7 +131,7 @@ function AgregarItem(props) {
             </form>
 
         </div>
-
+        </div>
 
 
     )

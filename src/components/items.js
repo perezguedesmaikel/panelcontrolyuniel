@@ -42,11 +42,8 @@ function Items() {
                     docus.map(item=><div key={item.id}><InteractiveCard/></div>)
                 }
 
-
-
-
-
             </div>
+
         </div>
             <ModalBorrar idborrar={idborrar} archivoName={archivoName} />
         </>

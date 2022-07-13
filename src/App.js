@@ -12,6 +12,7 @@ import {useAuth} from './context/authcontext'
 import Registrar from "./components/Registrar";
 import AgregarCategoria from "./components/agregarCategoria";
 import {supabase} from "./firebase/supabase";
+import Iframe from "./components/Iframe";
 
 function App() {
     const[dataSelect,setDataSelect]=useState([]);
@@ -38,6 +39,7 @@ function App() {
         <Routes>
             <Route path='/registrar' element={<ProtectedRoute><Registrar/></ProtectedRoute>}/>
             <Route path='/categoria' element={<ProtectedRoute><AgregarCategoria/></ProtectedRoute>}/>
+            <Route path='/iframe' element={<ProtectedRoute><Iframe/></ProtectedRoute>}/>
             <Route path='/log' element={<ProtectedRoute><Log/></ProtectedRoute>}/>
             <Route path='/agregar' element={<ProtectedRoute><AgregarItem dataselect={dataSelect}/></ProtectedRoute>}/>
             <Route path='/login' element={<Login/>}/>

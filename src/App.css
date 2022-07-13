@@ -49,4 +49,80 @@
 .error{
   display: none!important;
 }
+#iframe{
+  width:  1400px!important;
+  height: 1000px!important;
+}
+@media (max-width:1280px){
+  #iframe{
+    width: 1280px!important;
+    height: 800px!important;
+  }
+}
+@media (max-width:1024px){
+  #iframe{
+    width: 1024px!important;
+    height: 600px!important;
+  }
+}
+@media (max-width:912px){
+  #iframe{
+    width: 912px!important;
+    height: 1368px!important;
+  }
+}
+@media (max-width:820px){
+  #iframe{
+    width: 820px!important;
+    height: 1180px!important;
+  }
+}
+@media (max-width:768px){
+  #iframe{
+    width: 768px!important;
+    height: 1024px!important;
+  }
+}
+@media (max-width:540px){
+  #iframe{
+    width: 540px!important;
+    height: 800px!important;
+  }
+}
+@media (max-width:414px){
+  #iframe{
+    width: 414px!important;
+    height: 896px!important;
+  }
+}
+@media (max-width:393px){
+  #iframe{
+    width: 393px!important;
+    height: 851px!important;
+  }
+}
+@media (max-width:390px){
+  #iframe{
+    width: 390px!important;
+    height: 844px!important;
+  }
+}
+@media (max-width:375px){
+#iframe{
+  width: 375px!important;
+  height: 667px!important;
+}
+}
+@media (max-width:360px){
+  #iframe{
+    width: 360px!important;
+    height: 740px!important;
+  }
+}
+@media (max-width:280px){
+  #iframe{
+    width: 280px!important;
+    height: 653px!important;
+  }
+}
 
