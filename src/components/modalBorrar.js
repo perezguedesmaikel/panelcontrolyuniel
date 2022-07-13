@@ -11,7 +11,7 @@ function ModalBorrar(props) {
                 .storage
                 .from('mabriss')
                 .remove([props.archivoName])
-            error ? console.log(error.message):console.log(data);
+            error && console.log(error.message);
 
         }catch (e) {
             console.log(e.message);
@@ -31,9 +31,6 @@ function ModalBorrar(props) {
     }
     return(
         <div>
-
-
-
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">

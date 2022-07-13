@@ -68,13 +68,15 @@ function AgregarItem(props) {
         const {value: valorArchivo} = valor;
         const {descripcion} = e.target;
         const {value: descripcionArchivo} = descripcion;
+        const {categoria} = e.target;
+        const {value: categorianArchivo} = categoria;
         //trabajo con firebase
         //nuevo
         const { data, error } = await supabase
             .from('tienda')
             .insert([
                 { nombre: nombreArchivo, descripcion: descripcionArchivo,archivoname:archivoload,presio:valorArchivo,
-                imagen:archivourl
+                imagen:archivourl,categoria:categorianArchivo
                 }
             ])
         //nuevo
@@ -90,7 +92,7 @@ function AgregarItem(props) {
         <div className='m-1'><h2 className='m-1'>Agregar Item</h2>
             <form onSubmit={handlerSubmit}>
                 <div className="m-2">
-                    <BasicSelect/>
+                    <BasicSelect dataSelect={props.dataselect} name={'categoria'}/>
                     <TextField
                         label="Nombre del producto"
                         name='nombre'

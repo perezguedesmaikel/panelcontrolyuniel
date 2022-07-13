@@ -3,6 +3,7 @@ import RecipeReviewCard from "./card";
 import ModalBorrar from "./modalBorrar";
 import {useNavigate} from "react-router-dom";
 import {supabase} from "../firebase/supabase";
+import InteractiveCard from "./cardThumnail";
 
 
 //ecomerce
@@ -36,9 +37,9 @@ function Items() {
         <div className='container-fluid'>
             <h1>Bienvenido</h1>
             <div className='d-flex flex-wrap justify-content-center'>
+
                 {
-                    docus.map(item=><RecipeReviewCard key={item.id} nombre={item.nombre} descripcion={item.descripcion} url={item.imagen}
-                                                      obteniendoid={()=>obteniendoid(item.id,item.archivoname)}/>)
+                    docus.map(item=><div key={item.id}><InteractiveCard/></div>)
                 }
 
 

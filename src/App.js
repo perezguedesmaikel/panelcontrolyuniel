@@ -11,7 +11,26 @@ import {ProtectedRoute} from "./components/protectedRoute";
 import {useAuth} from './context/authcontext'
 import Registrar from "./components/Registrar";
 import AgregarCategoria from "./components/agregarCategoria";
+import {supabase} from "./firebase/supabase";
+
 function App() {
+    const[dataSelect,setDataSelect]=useState([]);
+    useEffect(()=>{
+        async function selectData() {
+            try {
+                const {data, error} = await supabase
+                    .from('categoria')
+                    .select();
+                error && console.log(error.message);
+                setDataSelect(data);
+            } catch (e) {
+                console.log(e.message);
+            }
+        }
+        selectData().then();
+
+
+    },[])
     const {session}=useAuth();
   return (
     <div className="App">
@@ -20,7 +39,7 @@ function App() {
             <Route path='/registrar' element={<ProtectedRoute><Registrar/></ProtectedRoute>}/>
             <Route path='/categoria' element={<ProtectedRoute><AgregarCategoria/></ProtectedRoute>}/>
             <Route path='/log' element={<ProtectedRoute><Log/></ProtectedRoute>}/>
-            <Route path='/agregar' element={<ProtectedRoute><AgregarItem/></ProtectedRoute>}/>
+            <Route path='/agregar' element={<ProtectedRoute><AgregarItem dataselect={dataSelect}/></ProtectedRoute>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/' element={<ProtectedRoute><Items /></ProtectedRoute>}/>
             <Route path='/*' element={<Alert variant="filled" severity="error">
