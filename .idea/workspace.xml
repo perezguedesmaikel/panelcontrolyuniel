@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="392c65de-3bd8-409a-a38e-9125125e53b2" name="Default Changelist" comment="cansado hoy trabajé poco">
+      <change afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/yuniel_tienda_admin.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/carteranegra.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/download.jfif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="6428ef602d28e4bbc92c4b668c3b21ca2f989e86" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2BK3J1xoVhkECu6x7w4gNCsOlU3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\server\htdocs\yuniel_tienda_admin\src" />
+      <recent name="G:\server\htdocs\yuniel_tienda_admin\src\app" />
+      <recent name="G:\server\htdocs\yuniel_tienda_admin" />
+      <recent name="G:\server\htdocs\yuniel_tienda_admin\src\components" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="392c65de-3bd8-409a-a38e-9125125e53b2" name="Default Changelist" comment="" />
+      <created>1656640877245</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656640877245</updated>
+      <workItem from="1656640908217" duration="169000" />
+      <workItem from="1656643762328" duration="120000" />
+      <workItem from="1656645412866" duration="656000" />
+      <workItem from="1656648038128" duration="662000" />
+      <workItem from="1656648703794" duration="1412000" />
+      <workItem from="1656650671599" duration="48266000" />
+      <workItem from="1656799697744" duration="638000" />
+      <workItem from="1656802630021" duration="3923000" />
+      <workItem from="1656815970893" duration="1823000" />
+      <workItem from="1656974892267" duration="2076000" />
+      <workItem from="1657210632208" duration="7529000" />
+      <workItem from="1657218413486" duration="25834000" />
+      <workItem from="1657654496147" duration="20521000" />
+      <workItem from="1657748961191" duration="3845000" />
+      <workItem from="1657752886758" duration="3590000" />
+      <workItem from="1657822753539" duration="1637000" />
+      <workItem from="1657851363824" duration="293000" />
+      <workItem from="1657854215049" duration="2671000" />
+    </task>
+    <task id="LOCAL-00001" summary="para separar la rama">
+      <created>1656693121047</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1656693121047</updated>
+    </task>
+    <task id="LOCAL-00002" summary="error">
+      <created>1656694567310</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656694567310</updated>
+    </task>
+    <task id="LOCAL-00003" summary="borrado d euna credencial">
+      <created>1656694968098</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656694968098</updated>
+    </task>
+    <task id="LOCAL-00004" summary="version estable voy pa lo del viejo">
+      <created>1656696102846</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1656696102846</updated>
+    </task>
+    <task id="LOCAL-00005" summary="error viejo he pinga!!!!">
+      <created>1656711028998</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1656711028998</updated>
+    </task>
+    <task id="LOCAL-00006" summary="todo bien hasta ahora!!!!">
+      <created>1656716035201</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1656716035201</updated>
+    </task>
+    <task id="LOCAL-00007" summary="parce que lo arregle pingaaaa!!!!">
+      <created>1656719545043</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1656719545043</updated>
+    </task>
+    <task id="LOCAL-00008" summary="todo bien por ahora">
+      <created>1656726149955</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1656726149955</updated>
+    </task>
+    <task id="LOCAL-00009" summary="delete adivinado">
+      <created>1656728573427</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1656728573427</updated>
+    </task>
+    <task id="LOCAL-00010" summary="version bastante buena">
+      <created>1656736269355</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1656736269355</updated>
+    </task>
+    <task id="LOCAL-00011" summary="salvado para empezar trabajo co supabase">
+      <created>1656975822493</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1656975822493</updated>
+    </task>
+    <task id="LOCAL-00012" summary="hatsa haora bien resolviendo el problema del navegate">
+      <created>1657217715854</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1657217715854</updated>
+    </task>
+    <task id="LOCAL-00013" summary="error">
+      <created>1657219997841</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1657219997841</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Parece que arregle el problema todo bien&#10;con la session">
+      <created>1657220922150</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1657220922150</updated>
+    </task>
+    <task id="LOCAL-00015" summary="hatsa ahi bien voy a empezar a borrar">
+      <created>1657225766300</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1657225766300</updated>
+    </task>
+    <task id="LOCAL-00016" summary="sigo avanzando logre el despliegue con la nueva base de datos">
+      <created>1657227208976</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1657227208976</updated>
+    </task>
+    <task id="LOCAL-00017" summary="hasta ahora super bien todo">
+      <created>1657237720039</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1657237720039</updated>
+    </task>
+    <task id="LOCAL-00018" summary="hiba bien en diseño medio enclochado ahora en la programacion">
+      <created>1657666368136</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1657666368136</updated>
+    </task>
+    <task id="LOCAL-00019" summary="hay vamos guapiando con la administracion">
+      <created>1657681931661</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1657681931661</updated>
+    </task>
+    <task id="LOCAL-00020" summary="cansado hoy trabajé poco">
+      <created>1657752928124</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1657752928124</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="para separar la rama" />
+    <MESSAGE value="borrado d euna credencial" />
+    <MESSAGE value="version estable voy pa lo del viejo" />
+    <MESSAGE value="error viejo he pinga!!!!" />
+    <MESSAGE value="todo bien hasta ahora!!!!" />
+    <MESSAGE value="parce que lo arregle pingaaaa!!!!" />
+    <MESSAGE value="todo bien por ahora" />
+    <MESSAGE value="delete adivinado" />
+    <MESSAGE value="version bastante buena" />
+    <MESSAGE value="salvado para empezar trabajo co supabase" />
+    <MESSAGE value="hatsa haora bien resolviendo el problema del navegate" />
+    <MESSAGE value="error" />
+    <MESSAGE value="Parece que arregle el problema todo bien&#10;con la session" />
+    <MESSAGE value="hatsa ahi bien voy a empezar a borrar" />
+    <MESSAGE value="sigo avanzando logre el despliegue con la nueva base de datos" />
+    <MESSAGE value="hasta ahora super bien todo" />
+    <MESSAGE value="hiba bien en diseño medio enclochado ahora en la programacion" />
+    <MESSAGE value="hay vamos guapiando con la administracion" />
+    <MESSAGE value="cansado hoy trabajé poco" />
+    <option name="LAST_COMMIT_MESSAGE" value="cansado hoy trabajé poco" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="828" y="412" key="#ESLint" timestamp="1656648126456">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="828" y="412" key="#ESLint/0.0.1920.1040@0.0.1920.1040" timestamp="1656648126456" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1656649173064">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1656649173064" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1657680871511">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1657680871511" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1657752812864">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1657752812864" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1657752812864">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1657752812864" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1657752812864">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1657752812864" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1657752812864">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1657752812864" />
+    <state x="184" y="85" key="MergeDialog" timestamp="1656648488142">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="85" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1656648488142" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1656649299674">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1656649299674" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1657856667721">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1657856667721" />
+    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1656800164423">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1656800164423" />
+    <state x="740" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1656648425116">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="232" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1656648425116" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1656722512098">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1656722512098" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1656800097940">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1656800097940" />
+  </component>
+</project>

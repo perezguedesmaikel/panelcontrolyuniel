@@ -15,6 +15,7 @@ import {supabase} from "./firebase/supabase";
 import Iframe from "./components/Iframe";
 
 function App() {
+    {/*probando git*/}
     const[dataSelect,setDataSelect]=useState([]);
     useEffect(()=>{
         async function selectData() {
